@@ -1,1 +1,1 @@
-# Financial-Intelligence-OS-F-OS-
+# Financial-Intelligence-OS
