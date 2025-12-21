@@ -1,0 +1,60 @@
+/* Global reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Bloomberg-style base */
+body {
+    background-color: #0b0f14;
+    color: #e5e7eb;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Layout helpers */
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background: #000;
+    border-right: 1px solid #1f2937;
+    padding: 16px;
+}
+
+.sidebar a {
+    display: block;
+    color: #9ca3af;
+    text-decoration: none;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+}
+
+.sidebar a:hover {
+    background: #111827;
+    color: #fff;
+}
+
+.navbar {
+    height: 56px;
+    border-bottom: 1px solid #1f2937;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.main {
+    flex: 1;
+    padding: 24px;
+}
+
+.card {
+    background: #020617;
+    border: 1px solid #1f2937;
+    border-radius: 6px;
+    padding: 16px;
+}
