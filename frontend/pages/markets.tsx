@@ -1,23 +1,37 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
+
+type Bank = {
+    symbol: string;
+    price: number;
+    return_pct: number;
+    volatility: number;
+};
 
 export default function Markets() {
-    const [data, setData] = useState<any>(null);
+    const [banks, setBanks] = useState<Bank[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/market/price?symbol=HDFCBANK.NS")
-            .then(res => res.json())
-            .then(setData);
+        axios
+            .get("http://127.0.0.1:8000/market/compare?symbols=SBIN.NS,HDFCBANK.NS")
+            .then(res => setBanks(res.data))
+            .finally(() => setLoading(false));
     }, []);
 
+    if (loading) return <p>Loading…</p>;
+
     return (
-        <div className="p-6">
-            <h1 className="text-xl font-semibold mb-4">Markets</h1>
-            {data && (
-                <div className="bg-zinc-900 p-4 rounded">
-                    <p>Price: ₹{data.price}</p>
-                    <p>Change: {data.change}</p>
+        <div>
+            <h2 className="accent">Bank Comparison</h2>
+            {banks.map(b => (
+                <div className="card" key={b.symbol}>
+                    <h3>{b.symbol}</h3>
+                    <p>Price: ₹{b.price}</p>
+                    <p>Return: {b.return_pct}%</p>
+                    <p>Volatility: {b.volatility}%</p>
                 </div>
-            )}
+            ))}
         </div>
     );
 }

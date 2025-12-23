@@ -32,3 +32,16 @@ def run_llm(prompt: str):
         return res.choices[0].message.content
     except Exception as e:
         return f"LLM error: {str(e)}"
+
+
+def explain_stock_move(symbol: str, df):
+    latest = df.iloc[-1]
+    prev = df.iloc[-2]
+
+    change_pct = ((latest["Close"] - prev["Close"]) / prev["Close"]) * 100
+
+    return (
+        f"{symbol} moved {change_pct:.2f}% recently. "
+        f"This move may be driven by market sentiment, "
+        f"interest rate expectations, or sector-level banking flows."
+    )

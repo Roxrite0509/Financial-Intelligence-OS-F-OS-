@@ -2,17 +2,24 @@ import Link from "next/link";
 
 export default function Home() {
     return (
-        <div className="h-screen bg-black text-white flex items-center justify-center">
-            <div className="space-y-4 text-center">
-                <h1 className="text-4xl font-bold">F-OS</h1>
-                <p className="text-gray-400">Bank Monitoring System</p>
-                <Link
-                    href="/dashboard"
-                    className="inline-block px-6 py-3 bg-yellow-500 text-black rounded"
-                >
-                    Go to Dashboard
-                </Link>
-            </div>
+        <div style={{ padding: 32 }}>
+            <h1>F-OS India Bank Intelligence</h1>
+
+            <p>
+                India-first banking & market intelligence platform.
+            </p>
+
+            <ul>
+                <li>
+                    <Link href="/dashboard">📊 Dashboard</Link>
+                </li>
+                <li>
+                    <Link href="/markets">🏦 Bank Markets</Link>
+                </li>
+                <li>
+                    <Link href="/ai">🤖 AI Insights</Link>
+                </li>
+            </ul>
         </div>
     );
 }

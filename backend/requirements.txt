@@ -6,3 +6,10 @@ requests
 yfinance
 feedparser
 openai
+fastapi
+uvicorn
+yfinance
+pandas
+numpy
+openai
+python-dotenv
